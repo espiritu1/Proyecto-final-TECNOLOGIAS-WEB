@@ -21,13 +21,22 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">p 1</a>
+      <a class="nav-link" href="#">Acerca de nosotros</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">pp 2</a>
+      <a class="nav-link" href="#">Registro de solicitud</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">ppp 3</a>
+      <a class="nav-link" href="#">lista de usuarios que ha solicitado prestamos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">bitacora</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Observaciones acerca del quipo</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Chat</a>
     </li>
   </ul>
 </nav>
