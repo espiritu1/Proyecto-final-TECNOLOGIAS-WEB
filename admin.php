@@ -30,22 +30,22 @@ if(!isset($username)){
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Acerca de nosotros</a>
+      <a class="nav-link" href="nosotros.php ">Acerca de nosotros</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Registro de solicitud</a>
+      <a class="nav-link" href="Registro.php">Registro de solicitud</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">lista de usuarios que ha solicitado prestamos</a>
+      <a class="nav-link" href="prestamos.php">lista de usuarios que ha solicitado prestamos</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">bitacora</a>
+      <a class="nav-link" href="bitacora.php">bitacora</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Observaciones acerca del quipo</a>
+      <a class="nav-link" href="observaciones.php">Observaciones acerca del quipo</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Chat</a>
+      <a class="nav-link" href="chat.php">Chat</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" >    </a>
