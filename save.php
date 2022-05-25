@@ -7,7 +7,7 @@ if(isset($_POST['save'])){
   $matricula = $_POST['matricula'];
   $carrera = $_POST['carrera'];
 
-  $id_rol = $_POST['id_rol'];
+  $id_rol = 1;
   $pass = $_POST['pass'];
 
   $sql = "INSERT INTO  usarios (nombre, matricula, carrera, id_rol, pass)  VALUES ('$nombre','$matricula','$carrera','$id_rol','$pass')";

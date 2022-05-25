@@ -21,14 +21,7 @@
                 <option alt="redes"value="Redes">Redes</option></select>
               </div>
 
-              <div>
-               <div class="form-group" tabindex="" >
-                <select  class="form-group" name="id_rol" id=""  required>
-                <option value="">--selecciona un rol--</option>
-                <option alt="Igenieria de Software" value="2">Maestro</option>
-                <option alt="Tecnologia Computacionales"value="3">estudiante</option>
-                
-              </div>
+          
           
           
               <div class="form-group">

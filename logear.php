@@ -10,7 +10,7 @@
 $nombre = $_POST['nombre'];
 $pass = $_POST['pass'];
 
-$sql ="SELECT * FROM usarios  where nombre = '$nombre' and pass='$pass'";
+$sql ="SELECT * FROM usarios  where nombre = '$nombre'and pass='$pass' ";
 
 $consulta = mysqli_query( $conn, $sql );
 
@@ -22,14 +22,17 @@ if($array!=null){
   switch($array['id_rol']){
       case 1:
         $_SESSION['username'] = $nombre; 
+        
         header ("location: admin.php");
       break;
       case 2:
         $_SESSION['username'] = $nombre; 
+        
         header ("location: maestro.php");
       break;
       case 3:
-        $_SESSION['username'] = $nombre; 
+        $_SESSION['username'] = $nombre;
+         
         header ("location: estudiante.php");
       break;
       default:

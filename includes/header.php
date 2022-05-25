@@ -20,23 +20,25 @@
   
   <!-- Links -->
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Acerca de nosotros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Registro de solicitud</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">lista de usuarios que ha solicitado prestamos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">bitacora</a>
-    </li>
+    
     <li class="nav-item">
       <a class="nav-link" href="#">Observaciones acerca del quipo</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Chat</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <?php 
+          date_default_timezone_set("America/Mexico_City");
+
+          echo date("d-");
+          echo date("m-");
+          echo date("Y");
+       
+        ?>
+      </a>
     </li>
   </ul>
 </nav>

@@ -48,10 +48,10 @@ if(!isset($username)){
       <a class="nav-link" href="chat.php">Chat</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" >    </a>
+      <a class="nav-link" >             </a>
     </li>
      <li class="nav-item">
-      <a class="nav-link" >    </a>
+      <a class="nav-link" >              </a>
     </li>
   
     
@@ -59,11 +59,35 @@ if(!isset($username)){
      <li class="nav-item">
       <a class="navbar-brand"  tanindex="" alt="volver a la pagina principal">  Hola  <?php echo $username;} ?></a>
     </li>
+    <li class="nav-item">
+      <a class="nav-link" >             </a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" >              </a>
+    </li>
 
     <li class="nav-item">
           <?php
                   echo "<a class='nav-item' href='includes/salir.php' tabindex='' alt='cerrar mi session'>cerrar session </a>";
                 ?>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" >             </a>
+    </li>
+     <li class="nav-item">
+      <a class="nav-link" >              </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <?php 
+          date_default_timezone_set("America/Mexico_City");
+
+          echo date("d-");
+          echo date("m-");
+          echo date("Y");
+       
+        ?>
+      </a>
     </li>
   </ul>
 </nav>
