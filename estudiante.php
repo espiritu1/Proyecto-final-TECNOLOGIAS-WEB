@@ -1,14 +1,10 @@
-
-
 <?php 
 include("db.php");
-
 
 $username = $_SESSION['username'];
 if(!isset($username)){
   header("location: login.php");
   }else{?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +66,7 @@ if(!isset($username)){
 
     <li class="nav-item">
           <?php
-                  echo "<button class='nav-item' href='includes/salir.php'  tabindex='' alt='cerrar mi session'>cerrar session </button>";
+                  echo "<a class='nav-item' href='includes/salir.php'  tabindex='' alt='cerrar mi session'>cerrar session </a>";
                 ?>
     </li>
     <li class="nav-item">
@@ -137,17 +133,17 @@ if(!isset($username)){
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['nombre'] ?></td>
                             <td><?php echo $row['matricula'] ?></td>
-                            
                             <td><?php echo $row['carrera'] ?></td>
-                            
-                            
                             <td><?php echo $row['pass'] ?></td>
+
+
                             <td>
-                               <a tabindex="10" alt="editar usuarios " href="edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
+                               <a tabindex="10" alt="editar usuarios " href="edit_estudiante.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
                                    <i class="fas fa-marker"> </i>
                                </a> 
-                                  <a tabindex="11" alt="borrar usuario BE careful" href="delete.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
-                                   <i class="far fa-trash-alt"></i>
+
+                                <a tabindex="11" alt="borrar usuario BE careful" href="prestamo.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
+                                   <i class="fa fa-desktop"></i>
                                </a> 
                             </td>
                         </tr>

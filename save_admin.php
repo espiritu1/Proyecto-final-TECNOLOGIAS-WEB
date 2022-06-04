@@ -7,7 +7,7 @@ if(isset($_POST['save'])){
   $matricula = $_POST['matricula'];
   $carrera = $_POST['carrera'];
 
-  $id_rol = 3;
+  $id_rol = $_POST['id_rol'];
   $pass = $_POST['pass'];
 
   $sql = "INSERT INTO  usarios (nombre, matricula, carrera, id_rol, pass)  VALUES ('$nombre','$matricula','$carrera','$id_rol','$pass')";
@@ -16,7 +16,7 @@ if(isset($_POST['save'])){
   $_SESSION['message'] ='los datos se guardaron exitosamente';
   $_SESSION['message_type'] ='success';
 
-  header("location: login.php");
+  header("location: admin.php");
   
 
 }

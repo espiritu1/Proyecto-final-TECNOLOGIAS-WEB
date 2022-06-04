@@ -81,13 +81,6 @@
             <!--<input type="radio" name="genero" value="mujer"  /> <label for="">Mujer.     </label>
               <input type="radio" name="genero" value="hombre" /> <label for="">Hombre.   </label>
               <input type="radio" name="genero" value="otro" /><label for="">Otro. </label>-->
-
-              
-              
-          
-
-
-            
             </div>
 
             <div class="form-group">

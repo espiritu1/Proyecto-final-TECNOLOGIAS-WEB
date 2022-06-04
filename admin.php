@@ -113,7 +113,7 @@ if(!isset($username)){
 
             <div class="card card-body">
 
-              <form action="save.php"  alt="formulario crear una cuenta" method="POST">
+              <form action="save_admin.php"  alt="formulario crear una cuenta" method="POST">
                 <div>
                   <h3>agregar</h3>
                   <br>
