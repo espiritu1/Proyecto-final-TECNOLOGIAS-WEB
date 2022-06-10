@@ -6,6 +6,14 @@ if(!isset($username)){
   header("location: login.php");
   }else{?>
 
+  <?php 
+                  $queryPROF = "SELECT id  FROM usarios WHERE nombre= '$username' ";
+                  $resultPROF = mysqli_query($conn, $queryPROF );
+                  while($row = mysqli_fetch_array ($resultPROF)){?>
+                     <?php $zx=$row['id'];?>
+                  
+                <?php }?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -124,7 +132,14 @@ if(!isset($username)){
                     </tr>
                 </thead>
                 <tbody>
+
+          
+
+
+
                     <?php
+                   
+                    
                         $sql ="SELECT * FROM usarios where nombre = '$username' ";
                         $consuta= mysqli_query( $conn, $sql );
                         
@@ -160,6 +175,63 @@ if(!isset($username)){
 
 
 
+</div>
+
+<div class="container p-4" > 
+  <div class="row">
+    <div class="col-md-8 mx.auto">
+      <div class="card card-body">
+        <h3>si gustas puedes realizar un comentaria sobre el equipo</h3>
+
+        <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th>id_usuario</th>
+                      <th>id del equipo</th>
+                      <th>Nombre del equipo</th>
+                      <th>relizar comentaria</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <?php 
+                         
+                        $sql ="SELECT prestamos.id_usuario, prestamos.id_equipo, pc.nombre_equipo 
+                        FROM pc 
+                        INNER JOIN prestamos ON pc.id_equipo = prestamos.id_equipo 
+                         where prestamos.id_usuario = '$zx';
+                         ";
+                        $consuta= mysqli_query( $conn, $sql);
+                        
+                        
+                        while($row = mysqli_fetch_array($consuta) ){ ?>
+                        <tr>
+                            <td><?php echo $row['id_usuario'] ?></td>
+                            <td><?php echo $row['nombre_equipo'] ?></td>
+                            <td><?php echo $row['id_equipo'] ?></td>
+                            <td><?php echo $row['nombre_equipo'] ?></td>
+
+                            <td>
+                               <a tabindex="10" alt="editar usuarios " href="comentar.php?id=<?php echo $row['id_equipo'] ?>" class="btn btn-secondary">
+                                   <i class="fas fa-marker"> </i>
+                               </a> 
+                            </td>
+                        </tr>
+
+                        
+                    <?php } ?>
+                </tbody>
+
+            </table>
+        
+
+
+
+
+      </div>
+    </div> 
+  </div>     
 </div>
 
 <?php include("includes/footer.php") ?>

@@ -21,23 +21,25 @@ if  (isset($_GET['id'])) {
   }
 
   if (isset($_POST['update'])) {
-    $id = $_GET['id'];
-    
-    $nombre = $_POST['nombre'];
-    $matricula = $_POST['matricula'];
-    $carrera = $_POST['carrera'];
-    $hora_e = $_POST['hora_e'];
-    $hora_s = $_POST['hora_s'];
-    $materia = $_POST['materia'];
-    $equipo = $_POST['equipo'];
+  
+    $h_entrada = $_POST['h_entrada'];
+    $id_materia = $_POST['id_materia'];
+    $id_usuario = $_POST['id_usuario'];
+    $id_equipo = $_POST['id_equipo'];
+    $motivo_pres = $_POST['motivo_pres'];
+    $h_salida = $_POST['h_salida'];
     $maestro = $_POST['maestro'];
-    $OPrestamo_s = $_POST['OPrestamo'];
+    
+    
 
-    $query = "UPDATE  prestamos set id = '$nombre' matricula = '$matricula',  carrera = '$carrera',   WHERE id=$id";
+    $query = "INSERT INTO prestamos (h_entrada, id_materia, id_usuario, id_equipo, motivo_pres, h_salida, maestro )
+    VALUES('$h_entrada','$id_materia','$id_usuario','$id_equipo','$motivo_pres','$h_salida','$maestro' )";
     mysqli_query($conn, $query);
+  
     $_SESSION['message'] = 'Se realizo el pedodo exitosamente';
     $_SESSION['message_type'] = 'warning';
     header('Location: estudiante.php');
+    
   }
 
 
@@ -150,12 +152,12 @@ if(!isset($username)){
         <div class="card card-body">
           <h3>Solicitar prestamo</h3>
 
-          <form action="prestamo.php" method="POSTS">
+          <form action="prestamo.php" method="POST">
 
             <div class="form-group">
 
 
-                <input type="text" name="nombre" value="<?php echo $id; ?>"  
+                <input type="text" name="id_usuario" value="<?php echo $id; ?>"  
                     tabindex="" alt="ingresa tu nombre de estudiante" class ="form-control" 
                     placeholder="Nombre del estudiante"  required autofocus> <?php echo $nombre; ?>
             </div>
@@ -181,20 +183,20 @@ if(!isset($username)){
 
             <div class="form-group">
               <strong><p >Hora de entrada</p></strong>
-                <input type="time" value="07:00" name="hora_e"  tabindex="" 
+                <input type="time" value="07:00" name="h_entrada"  tabindex="" 
                 alt=" ingresa tu hora en entrada " class ="form-control" placeholder="hora entrda" required >
             </div>
 
             <div class="form-group">
               <strong><p >Hora de Salida</p></strong>
-                <input type="time" value="21:00" name="hora_s"  tabindex="" 
+                <input type="time" value="21:00" name="h_salida"  tabindex="" 
                 alt=" ingresa tu hora de salida" class ="form-control" placeholder="hora entrada" required >
                
             </div>
 
             <div class="form-group">
                 <strong><p for=""> materia</p></strong>
-                <select lass="form-group" name="materia" id="" tabindex="" alt=" ingresa el nmobre de la materia " 
+                <select lass="form-group" name="id_materia" id="" tabindex="" alt=" ingresa el nmobre de la materia " 
                 class ="form-control" placeholder="Materia" required  >
                 <?php 
                 $queryMAT = "SELECT id_materia, nombre_materia FROM materias ";
@@ -207,9 +209,9 @@ if(!isset($username)){
 
             <div class="form-group">
               <strong> <p >Selecciona el <u>Nombre del Equipo</u>  que se ajuste a tus necesidades con la Descripcion del Equipo </p></strong>
-              <select lass="form-group" name="equipo" id="" tabindex="" alt="eleje un pc"  class ="form-control" placeholder="" required>
+              <select lass="form-group" name="id_equipo" id="" tabindex="" alt="eleje un pc"  class ="form-control" placeholder="" required>
                 <?php 
-                  $queryPC = "SELECT id_equipo, nombre_equipo FROM pc ";
+                  $queryPC = "SELECT id_equipo, nombre_equipo FROM pc where pres= 'D' ";
                   $resultPC = mysqli_query($conn, $queryPC );
                   while($row = mysqli_fetch_array ($resultPC)){?>
                   <option value="<?php echo $row['id_equipo'] ?>"><?php echo $row['nombre_equipo'] ?></option>
@@ -224,13 +226,13 @@ if(!isset($username)){
                   $queryPROF = "SELECT id_rol ,nombre  FROM usarios WHERE id_rol= 2 ";
                   $resultPROF = mysqli_query($conn, $queryPROF );
                   while($row = mysqli_fetch_array ($resultPROF)){?>
-                  <option value="<?php echo $row['id_rol'] ?>"><?php echo $row['nombre'] ?></option>
+                  <option value="<?php echo $row['nombre'] ?>"><?php echo $row['nombre'] ?></option>
                 <?php }?>
               </select>
             </div>
 
             <div class="form-group">
-              <input type="text" name="OPrestamo" value=""  
+              <input type="text" name="motivo_pres" value=""  
                   tabindex="" alt="Objetivo del prestamos" class ="form-control" 
                   placeholder="Objetivo del prestamos"  required autofocus>
             </div>
@@ -255,7 +257,7 @@ if(!isset($username)){
                 </thead>
                 <tbody>
                     <?php
-                        $sqle ="SELECT nombre_equipo, descripcio FROM  pc";
+                        $sqle ="SELECT nombre_equipo, descripcio FROM  pc where  pres = 'D'";
                         $consutae= mysqli_query( $conn, $sqle );
                         
                         while($row = mysqli_fetch_array($consutae) ){ ?>
@@ -269,6 +271,7 @@ if(!isset($username)){
         </div>
     </div>
 </div>
+
 
 <?php include("includes/footer.php") ?>
 
