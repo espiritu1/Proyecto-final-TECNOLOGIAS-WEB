@@ -38,11 +38,9 @@ if(!isset($username)){
     <li class="nav-item">
       <a class="nav-link" href="nosotros1.php ">Acerca de nosotros</a>
     </li>
+   
     <li class="nav-item">
-      <a class="nav-link" href="Registro.php">Registro de solicitud</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="prestamos.php">lista de usuarios que ha solicitado prestamos</a>
+      <a class="nav-link" href="prestamos.php">lista de usuarios</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="bitacora.php">bitacora</a>

@@ -1,13 +1,24 @@
 <?php 
 include("db.php");
-?>
 
+$username = $_SESSION['username'];
+if(!isset($username)){
+  header("location: login.php");
+  }else{?>
+
+  <?php 
+                  $queryPROF = "SELECT id  FROM usarios WHERE nombre= '$username' ";
+                  $resultPROF = mysqli_query($conn, $queryPROF );
+                  while($row = mysqli_fetch_array ($resultPROF)){?>
+                     <?php $zx=$row['id'];?>
+                  
+                <?php }?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Bitacora</title>
+    <title>perfil del estudiante</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- BOOTSTRAP 4 -->
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
@@ -16,7 +27,7 @@ include("db.php");
   </head>
   <body>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" >
     <img src="img/uv.png" alt="logo" style="width:50px;">
@@ -25,13 +36,11 @@ include("db.php");
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="nosotros.php ">Acerca de nosotros</a>
+      <a class="nav-link" href="nosotros1.php ">Acerca de nosotros</a>
     </li>
+   
     <li class="nav-item">
-      <a class="nav-link" href="Registro.php">Registro de solicitud</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="prestamos.php">lista de usuarios que ha solicitado prestamos</a>
+      <a class="nav-link" href="prestamos.php">lista de usuarios</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="bitacora.php">bitacora</a>
@@ -47,7 +56,13 @@ include("db.php");
     </li>
      <li class="nav-item">
       <a class="nav-link" >              </a>
+    </li>
+  
+    
 
+     <li class="nav-item">
+      <a class="navbar-brand"  tanindex="" alt="volver a la pagina principal">  Hola  <?php echo $username;} ?></a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" >             </a>
     </li>
@@ -57,7 +72,7 @@ include("db.php");
 
     <li class="nav-item">
           <?php
-                  echo "<a class='nav-item' href='includes/salir.php' tabindex='' alt='cerrar mi session'>cerrar session </a>";
+                  echo "<a class='nav-item' href='includes/salir.php'  tabindex='' alt='cerrar mi session'>cerrar session </a>";
                 ?>
     </li>
     <li class="nav-item">
