@@ -26,7 +26,7 @@ CREATE TABLE `comentarios` (
   `id_comentario` int(100) NOT NULL AUTO_INCREMENT,
   `comentario` text NOT NULL,
   PRIMARY KEY (`id_comentario`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-INSERT INTO `comentarios` VALUES (1,'una buena pc para programar con python'),(2,'la pc esta muy lenta y no tiene ningun lenguaje de programacion instalado'),(3,'tiene una vercion de linux muy vieja'),(4,'tiene instaldo windows 10 pero esta muy lenta y el antivirus se consume la ram'),(5,'la pantalla es muy pequela y se ve borrosa'),(6,'me encato trabajar con esta computadora por que tiene instalado mi lenguaje favorito C y respnde muy rapido'),(7,'el teclado esta muy sucio y el mouse no responde bien '),(8,'es una mumuy buena computadora la recomiendo para trabajar paginas web'),(9,'la pantalla tiene muy buena resolucuon y la pc responde muy rapido'),(10,'le flata linux'),(11,'le falta windows'),(12,'para ser una mac esta muy lenta');
+INSERT INTO `comentarios` VALUES (1,'una buena pc para programar con python'),(2,'la pc esta muy lenta y no tiene ningun lenguaje de programacion instalado'),(3,'tiene una vercion de linux muy vieja'),(4,'tiene instaldo windows 10 pero esta muy lenta y el antivirus se consume la ram'),(5,'la pantalla es muy pequela y se ve borrosa'),(6,'me encato trabajar con esta computadora por que tiene instalado mi lenguaje favorito C y respnde muy rapido'),(7,'el teclado esta muy sucio y el mouse no responde bien '),(8,'es una mumuy buena computadora la recomiendo para trabajar paginas web'),(9,'la pantalla tiene muy buena resolucuon y la pc responde muy rapido'),(10,'le flata linux'),(11,'le falta windows'),(12,'para ser una mac esta muy lenta'),(13,'PN');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -76,10 +76,11 @@ CREATE TABLE `pc` (
   `descripcio` text NOT NULL,
   `num_inventario` varchar(100) NOT NULL,
   `id_comentario` int(100) NOT NULL,
+  `pres` char(5) NOT NULL,
   PRIMARY KEY (`id_equipo`),
-  KEY `id_comentario` (`id_comentario`),
-  CONSTRAINT `pc_ibfk_1` FOREIGN KEY (`id_comentario`) REFERENCES `comentarios` (`id_comentario`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+  KEY `pc_ibfk_1` (`id_comentario`),
+  CONSTRAINT `pc_ibfk_1` FOREIGN KEY (`id_comentario`) REFERENCES `comentarios` (`id_comentario`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +89,7 @@ CREATE TABLE `pc` (
 
 LOCK TABLES `pc` WRITE;
 /*!40000 ALTER TABLE `pc` DISABLE KEYS */;
-INSERT INTO `pc` VALUES (2,'CC1 PC1','HP prodesk 600\r\ncon procesador Intel i5-4570\r\n8 GB de RAM con windows 10\r\ny con programas como  python,Java,C# yPHPmyAdmin','FeiUvCC1-1',1),(3,'CC2 PC1','Lenovo Think M910Q\r\nSistema operativo windows 10\r\ncon procesador intel-core i7-6700\r\n16 GB de RAM y SSD\r\ncon programas: Unreal Engine, Unity, C# y PHPmyAdmin','FeiUvCC2-1',2),(4,'CC3 PC1','DELL optiplex 3050\r\nSistema operativo Windows 10\r\nprocesador intel Quad core i5-6500\r\n16 GB de RAM\r\nprogramas: Kotlin y swift','FeiUvCC3-1',11),(7,'CC2 PC2','HP EliteDesk 800GL\r\nprocesador Intel QuadCore i7-4770\r\nsistema operativo  LINUX\r\n16 GB de RAM\r\nProgramas: python, JAVA, C C++, C#, MysqlWorkbench','FeiUvCC2-2',3),(8,'CC4 PC1','Apple 2021 IMAC con pantalla 24\"\r\ncon Swift, java PHPMyAdmin','FeiUvCC4-1',12);
+INSERT INTO `pc` VALUES (2,'CC1 PC1','HP prodesk 600\r\ncon procesador Intel i5-4570\r\n8 GB de RAM con windows 10\r\ny con programas como  python,Java,C# yPHPmyAdmin','FeiUvCC1-1',13,'D'),(3,'CC2 PC1','Lenovo Think M910Q\r\nSistema operativo windows 10\r\ncon procesador intel-core i7-6700\r\n16 GB de RAM y SSD\r\ncon programas: Unreal Engine, Unity, C# y PHPmyAdmin','FeiUvCC2-1',2,'D'),(4,'CC3 PC1','DELL optiplex 3050\r\nSistema operativo Windows 10\r\nprocesador intel Quad core i5-6500\r\n16 GB de RAM\r\nprogramas: Kotlin y swift','FeiUvCC3-1',11,'D'),(7,'CC2 PC2','HP EliteDesk 800GL\r\nprocesador Intel QuadCore i7-4770\r\nsistema operativo  LINUX\r\n16 GB de RAM\r\nProgramas: python, JAVA, C C++, C#, MysqlWorkbench','FeiUvCC2-2',3,'D'),(8,'CC4 PC1','Apple 2021 IMAC con pantalla 24\"\r\ncon Swift, java PHPMyAdmin','FeiUvCC4-1',13,'D');
 /*!40000 ALTER TABLE `pc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,14 +109,16 @@ CREATE TABLE `prestamos` (
   `id_equipo` int(100) NOT NULL,
   `motivo_pres` text DEFAULT NULL,
   `h_salida` time DEFAULT NULL,
+  `maestro` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_prestamo`),
+  UNIQUE KEY `maestro` (`id_prestamo`),
   KEY `id_materia` (`id_materia`),
   KEY `id_equipo` (`id_equipo`),
   KEY `id_usuario` (`id_usuario`),
   CONSTRAINT `prestamos_ibfk_3` FOREIGN KEY (`id_materia`) REFERENCES `materias` (`id_materia`),
   CONSTRAINT `prestamos_ibfk_4` FOREIGN KEY (`id_equipo`) REFERENCES `pc` (`id_equipo`),
   CONSTRAINT `prestamos_ibfk_5` FOREIGN KEY (`id_usuario`) REFERENCES `usarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +127,7 @@ CREATE TABLE `prestamos` (
 
 LOCK TABLES `prestamos` WRITE;
 /*!40000 ALTER TABLE `prestamos` DISABLE KEYS */;
-INSERT INTO `prestamos` VALUES (1,'14:00:00','2022-06-03 21:02:58',6,37,8,'necesito hacer un CRUD en una aplicacion de apple','20:00:00');
+INSERT INTO `prestamos` VALUES (12,'07:00:00','2022-06-07 22:59:33',1,37,8,'zdfbsfth','21:00:00','Zarate Navarro Willian'),(13,'07:00:00','2022-06-08 02:15:25',1,29,7,'godos','21:00:00','Zarate Navarro Willian'),(14,'07:00:00','2022-06-11 03:27:43',1,37,2,'pruevas cob base de datos','21:00:00','Zarate Navarro Willian');
 /*!40000 ALTER TABLE `prestamos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-03 21:51:31
+-- Dump completed on 2022-06-14 10:16:38
