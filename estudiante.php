@@ -7,18 +7,17 @@ if(!isset($username)){
   }else{?>
 
   <?php 
-                  $queryPROF = "SELECT id  FROM usarios WHERE nombre= '$username' ";
-                  $resultPROF = mysqli_query($conn, $queryPROF );
-                  while($row = mysqli_fetch_array ($resultPROF)){?>
-                     <?php $zx=$row['id'];?>
-                  
-                <?php }?>
+    $queryPROF = "SELECT id  FROM usarios WHERE nombre= '$username' ";
+    $resultPROF = mysqli_query($conn, $queryPROF );
+    while($row = mysqli_fetch_array ($resultPROF)){?>
+      <?php $zx=$row['id'];?>
+  <?php }?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>PHP CRUD MYSQL</title>
+    <title>perfil del estudiante</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- BOOTSTRAP 4 -->
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
@@ -111,11 +110,7 @@ if(!isset($username)){
             <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            
-
         <?php } ?>
-
-
         </div>
 
         <div class="col-md-8">
@@ -133,13 +128,7 @@ if(!isset($username)){
                 </thead>
                 <tbody>
 
-          
-
-
-
-                    <?php
-                   
-                    
+                    <?php                    
                         $sql ="SELECT * FROM usarios where nombre = '$username' ";
                         $consuta= mysqli_query( $conn, $sql );
                         
@@ -151,7 +140,6 @@ if(!isset($username)){
                             <td><?php echo $row['carrera'] ?></td>
                             <td><?php echo $row['pass'] ?></td>
 
-
                             <td>
                                <a tabindex="10" alt="editar usuarios " href="edit_estudiante.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary">
                                    <i class="fas fa-marker"> </i>
@@ -162,19 +150,11 @@ if(!isset($username)){
                                </a> 
                             </td>
                         </tr>
-
-                        
                     <?php } ?>
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
-
-
 </div>
 
 <div class="container p-4" > 
@@ -186,49 +166,36 @@ if(!isset($username)){
         <table class="table table-bordered">
                 <thead>
                     <tr>
-                      <th>id_usuario</th>
+                      <th>id_prestamo</th>
                       <th>id del equipo</th>
                       <th>Nombre del equipo</th>
                       <th>relizar comentaria</th>
                     </tr>
                 </thead>
-
-
                 <tbody>
                     <?php 
                          
-                        $sql ="SELECT prestamos.id_usuario, prestamos.id_equipo, pc.nombre_equipo 
+                        $sql ="SELECT prestamos.id_prestamo, prestamos.id_usuario, prestamos.id_equipo, pc.nombre_equipo 
                         FROM pc 
                         INNER JOIN prestamos ON pc.id_equipo = prestamos.id_equipo 
-                         where prestamos.id_usuario = '$zx';
-                         ";
+                         where prestamos.id_usuario = '$zx';";
                         $consuta= mysqli_query( $conn, $sql);
-                        
-                        
                         while($row = mysqli_fetch_array($consuta) ){ ?>
                         <tr>
-                            <td><?php echo $row['id_usuario'] ?></td>
+                            <td><?php echo $row['id_prestamo'] ?></td>
                             <td><?php echo $row['nombre_equipo'] ?></td>
                             <td><?php echo $row['id_equipo'] ?></td>
                             <td><?php echo $row['nombre_equipo'] ?></td>
 
                             <td>
-                               <a tabindex="10" alt="editar usuarios " href="comentar.php?id=<?php echo $row['id_equipo'] ?>" class="btn btn-secondary">
+                               <a tabindex="10" alt="editar usuarios " href="comentar.php?id=<?php echo $row['id_prestamo'] ?>" class="btn btn-secondary">
                                    <i class="fas fa-marker"> </i>
                                </a> 
                             </td>
                         </tr>
-
-                        
                     <?php } ?>
                 </tbody>
-
             </table>
-        
-
-
-
-
       </div>
     </div> 
   </div>     

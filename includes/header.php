@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>PHP CRUD MYSQL</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- BOOTSTRAP 4 -->
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
@@ -22,7 +22,7 @@
   <ul class="navbar-nav">
     
     <li class="nav-item">
-      <a class="nav-link" href="#">Observaciones acerca del quipo</a>
+      <a class="nav-link" href="nosotros.php">Acerca de nosotro</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Chat</a>

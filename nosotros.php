@@ -12,79 +12,14 @@
   
 </head>
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <!-- Brand/logo -->
-  <a class="navbar-brand" >
-    <img src="img/uv.png" alt="logo" style="width:50px;">
-  </a>
-  
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="nosotros.php ">Acerca de nosotros</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="Registro.php">Registro de solicitud</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="prestamos.php">lista de usuarios que ha solicitado prestamos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="bitacora.php">bitacora</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="observaciones.php">Observaciones acerca del quipo</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="chat.php">Chat</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" >             </a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" >              </a>
-    </li>
-  
-    
+  <?php include("includes/header.php"); ?>
 
-     <li class="nav-item">
-      
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" >             </a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" >              </a>
-    </li>
+<div class="container p-4" class="text-center" >  
 
-   
-    <li class="nav-item">
-      <a class="nav-link" >             </a>
-    </li>
-     <li class="nav-item">
-      <a class="nav-link" >              </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <?php 
-          date_default_timezone_set("America/Mexico_City");
-
-          echo date("d-");
-          echo date("m-");
-          echo date("Y");
-       
-        ?>
-      </a>
-    </li>
-  </ul>
-</nav>
-
-<div class="container p-4" > 
-
-  <div class="col-md-10">
-   <h1>Facultad de Estadística e Informática  </h1>
+  <div  >
+   <h1 class="text-center" >Facultad de Estadística e Informática  </h1>
    <br>
-   <p> En la facultad de estadística e informática tenemos la misión de formar profesionistas
+   <p class="text-center"> En la facultad de estadística e informática tenemos la misión de formar profesionistas
       socialmente responsables que contribuyan al desarrollo local, estatal y nacional, a través
       de la generación y aplicación del conocimiento y la extensión de los servicios, en las áreas 
       de estadística y de tecnologías de la información y comunicación ofreciendo programas 
@@ -98,22 +33,22 @@
       líderes y competentes en sus respectivas disciplinas, propiciando el desarrollo económico 
       del país</p>
     <br>
-      <img src="img/fei.jpg" alt="logo" style="width:500px;">
+      <img  class="text-center" src="img/fei.jpg" alt="logo" style="width:500px;">
     <br>
     <br>
-    <h1>Centro de cómputo </h1>
+    <h1 class="text-center"> Centro de cómputo </h1>
     <br>
 
-    <p>En el cetro de cómputo contamos con 4 aulas llamadas cc1 cc2 cc3 y cc4, todos los 
+    <p class="text-center">En el cetro de cómputo contamos con 4 aulas llamadas cc1 cc2 cc3 y cc4, todos los 
       equipos cuentan con dos sistemas operativos como son Windows y Linux, pero en el aula cc4 
       contamos con equipos Apple que cuentan con el sistema operativo de Apple y con Windows. 
       </p>
-      <p>Todos nuestros equipos cuentan además con el software necesario para que los estudiantes 
+      <p class="text-center">Todos nuestros equipos cuentan además con el software necesario para que los estudiantes 
       puedan realizar sus prácticas o actividades como son lenguajes de programación como 
       Java o C++ y sistemas gestores de base de datos </p>
       <br>
       <br>
-      <img src="img/cc1234.png" alt="logo" style="width:900px;">
+      <img  class="text-center"src="img/cc1234.png" alt="logo" style="width:900px;">
   </div>
   
 </div>

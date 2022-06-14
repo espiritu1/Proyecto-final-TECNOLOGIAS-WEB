@@ -3,7 +3,7 @@
 
 <?php include("includes/header.php"); ?>
 <div class="col-md-4 mx-auto">
-  <h1>Inicio de sesión</h1>
+  <h1 class="text-center">Inicio de sesión</h1>
       <div class="card card-body">
         
       <form action="logear.php" method="POST">
@@ -23,5 +23,20 @@
       </form>
       </div>
     </div>
+
+    <br>
+    <br>
+    <div class="col-md-4 mx-auto">
+      <p class="text-center" >
+        
+El centro de cómputo es un lugar donde todos los estudiantes puedes realizar sus proyecto relacionados con SOFTWARE y convertirse en mejores programadores 
+
+
+
+      </p  >
+       <strong> <p class="text-center">Disponible de las 7:00 a 21:00</p></strong>
+    </div>
+
+    
   </div>
 </div>

@@ -53,7 +53,7 @@ if(!isset($username)){
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>PHP CRUD MYSQL</title>
+    <title>Prestamos</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!-- BOOTSTRAP 4 -->
     <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
@@ -95,8 +95,6 @@ if(!isset($username)){
       <a class="nav-link" >              </a>
     </li>
   
-    
-
      <li class="nav-item">
       <a class="navbar-brand"  tanindex="" alt="volver a la pagina principal">  Hola  <?php echo $username;} ?></a>
     </li>
@@ -134,18 +132,6 @@ if(!isset($username)){
 </nav>
     <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container p-4" > 
     <div class="row">
       <div class="col-md-4 mx.auto">
@@ -162,25 +148,7 @@ if(!isset($username)){
                     placeholder="Nombre del estudiante"  required autofocus> <?php echo $nombre; ?>
             </div>
 
-            <!-- 
-            <div class="form-group">
-              (se eliminaron por qeu no son necesarias para el prestamo  )
-
-
-                  <input type="text" name="matricula" value="<?php echo $matricula; ?>"
-                    tabindex="" alt=" ingresa tu matricula" class ="form-control" 
-                    placeholder="Matricula" required >
-            </div>
-
-              <div class="form-group">
-                <select class="form-group" name="carrera" id=""   >
-                <option value="<?php echo $carrera; ?>"><?php echo $carrera; ?></option>
-                <option value="Ingenieria de Software">Igenieria de Software</option>
-                <option value="Tecnologia Computacionales ">Tecnologia Computacionales</option>
-                <option value="Redes">Redes</option></select>
-            </div>-->
-          
-
+      
             <div class="form-group">
               <strong><p >Hora de entrada</p></strong>
                 <input type="time" value="07:00" name="h_entrada"  tabindex="" 
@@ -241,11 +209,6 @@ if(!isset($username)){
           </form>
         </div>
       </div>
-
-
-
-
-
 
       <div class="col-md-7">
             <table class="table table-bordered">
