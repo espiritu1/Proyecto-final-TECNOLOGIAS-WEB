@@ -44,3 +44,10 @@ bla **bla** bla blab ablablv
 
 
 
+| Alineado-izquierda | Centrado | Alineado-derecha |
+| :-------- | :-------: | --------: |
+| Manzanas | rojo | 5000 |
+| Plátanos | amarillo | 75 |
+
+
+
