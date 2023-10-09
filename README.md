@@ -1,10 +1,3 @@
-# Proyecto-final-TECNOLOGIAS-WEB
-
-la base de datos esta actualizada y
-la primera pagina qeu tenemos qeu abrir en la de login.php
-
-
-
 # asdfae
 ##
 ###  1 asvaf
@@ -29,7 +22,7 @@ bla **bla** bla blab ablablv
 	* 5
 
 
-	```html
+```html
 <html>
     <head>
         <title>Título del sitio Web</title>
@@ -39,5 +32,15 @@ bla **bla** bla blab ablablv
 </html>
 ```
 > Hola. Éste es un párrafo de texto incluido en un bloque de cita. Fíjate que tengo una sangría con respecto al margen izquierdo.
+
+
+
+| Encabezado 1 | Encabezado 2 | Encabezado 3 |
+| --------- | --------- | --------- |
+| renglón 1, columna 1 | renglón 1, columna 2 | renglón 1, columna 3|
+| renglón 2, columna 1 | renglón 2, columna 2 | renglón 2, columna 3|
+| renglón 3, columna 1 | renglón 3, columna 2 | renglón 3, columna 3|
+
+
 
 
